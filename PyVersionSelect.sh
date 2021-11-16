@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### A script to help the user select among the python versions installed in the system through pyenv.
+# A script to help the user select among the python versions installed in the system through pyenv.
 
 declare -A DictionaryOfVersions
 
@@ -22,13 +22,14 @@ done
 echo "Which version do you want?";
 read choice
 
-##
+## Version Selector
 for ((i = 0; i < $count; i++)); do
-    echo "quanto que ta: ${i}"
+    # echo "quanto que ta: ${i}"
     if [[ $choice = $i ]]; then
         finalChoice=${DictionaryOfVersions[$i]}
         pyenv global $finalChoice
         echo "Version changed to: ${finalChoice}"
+        eval "$(pyenv init --path)"
         break
     elif [ $choice -ge ${count} ]; then
         ((limit=$count-1))
