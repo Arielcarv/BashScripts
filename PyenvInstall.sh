@@ -21,7 +21,7 @@ if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
         echo "\n\nThere were not a PATH in the ~/.bashrc file, so I'll add."
         sed -Ei -e '/^([^#]|$)/ {a \ export PYENV_ROOT="$HOME/.pyenv" a \ export PATH="$PYENV_ROOT/bin:$PATH" a \' -e ':a' -e '$!{n;ba};}' ~/.profile
         printf '\n\n### PYENV CONFIGURATION\neval "$(pyenv init --path)"' >> ~/.profile
-        printf '\n\n### PYENV CONFIGURATION\nexport PATH="$HOME/.pyenv/bin:$PATH"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc
+        printf '\n\n### PYENV CONFIGURATION\nexport PATH="$HOME/.pyenv/bin:$PATH"\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"\neval "$(pyenv init --path)"' >> ~/.bashrc
     fi
 fi
 
