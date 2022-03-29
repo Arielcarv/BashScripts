@@ -36,6 +36,6 @@ $SUDO apt install -qq -y make build-essential libssl-dev zlib1g-dev libbz2-dev l
 
 
 ## Final message
-echo -e '\n\n Log-out/Log-in for the changes to take action! \n'
+echo -e '\n\n\033[0;36m Log-out/Log-in for the changes to take action! \033[0m\n'
 
 exec $SHELL
