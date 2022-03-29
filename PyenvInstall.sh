@@ -26,8 +26,8 @@ if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
 fi
 
 ## Install dependencies for python versions
-sudo apt update; 
-sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt -qq update; 
+sudo apt -qq install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 
 ## Final message
