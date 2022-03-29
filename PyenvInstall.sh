@@ -16,7 +16,7 @@ if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
 fi
 
 if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
-    echo "\n\nIt's BASH"
+    echo -e "\n\n\033[0;31m--------- It's BASH ---------\n\n"
     if ! grep -q 'eval "$(pyenv init -)"' .bashrc; then
         echo -e "\n\nThere were not a PATH in the ~/.bashrc file, so I'll add."
         # sed -Ei -e '/^([^#]|$)/ {a \ export PYENV_ROOT="$HOME/.pyenv" a \ export PATH="$PYENV_ROOT/bin:$PATH" a \' -e ':a' -e '$!{n;ba};}' ~/.profile
@@ -26,11 +26,16 @@ if [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
 fi
 
 ## Install dependencies for python versions
-sudo apt -qq update; 
-sudo apt -qq install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+SUDO=''
+if [ "$EUID" -ne 0 ]; then
+	SUDO='sudo'
+fi
+
+$SUDO apt update -qq; 
+$SUDO apt install -y -qq make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 
 ## Final message
-printf '\n\n Log-out/Log-in for the changes to take action! \n'
+echo -e '\n\n Log-out/Log-in for the changes to take action! \n'
 
-# exec $SHELL
+exec $SHELL
