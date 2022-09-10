@@ -56,6 +56,7 @@ sed -i 's/ZSH_THEME=".*"/ZSH_THEME=\"powerlevel10k\/powerlevel10k\"/' ~/.zshrc
 ## Install Pyenv
 git clone git@github.com:Arielcarv/BashScripts.git
 bash ./BashScripts/PyenvInstall.sh
+rm -r ./BashScripts
 
 
 ## Atualização do sistema ##
