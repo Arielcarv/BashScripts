@@ -6,7 +6,7 @@ sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ;
 
 ## Atualizando o repositório ##
 
-sudo apt update &&
+sudo apt update && sudo apt upgrade -y
 
 ## Instalando pacotes e programas do repositório deb do Ubuntu ##
 
